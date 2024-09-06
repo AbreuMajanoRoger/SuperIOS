@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Superheroes-->
+        <!--Super Heroes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="SuperIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,6 +44,7 @@
                                         <connections>
                                             <outlet property="avatarImageView" destination="Fdx-Wh-IV7" id="V9v-cr-Rfr"/>
                                             <outlet property="nameLabel" destination="TbH-86-cdh" id="KGa-bZ-gEG"/>
+                                            <segue destination="kIG-wB-8EY" kind="show" identifier="showDetail" id="Jfo-Si-qmP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -58,7 +59,7 @@
                             <constraint firstItem="53W-Wm-2iF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yiq-l2-d9w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Superheroes" id="4MK-26-Nqn"/>
+                    <navigationItem key="navigationItem" title="Super Heroes" id="4MK-26-Nqn"/>
                     <connections>
                         <outlet property="tableView" destination="53W-Wm-2iF" id="gjV-Kn-dmF"/>
                     </connections>
@@ -67,25 +68,42 @@
             </objects>
             <point key="canvasLocation" x="654.19847328244271" y="7.746478873239437"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="s0l-J2-zcp">
             <objects>
-                <viewController id="kIG-wB-8EY" sceneMemberID="viewController">
+                <viewController id="kIG-wB-8EY" customClass="DetailViewController" customModule="SuperIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bjH-ly-ugr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7a1-XW-rSP">
+                                <rect key="frame" x="70" y="151" width="246" height="281"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameHero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJ2-gS-KHD">
+                                <rect key="frame" x="144" y="500" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="R0c-bb-Dft"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="X5g-T6-XZ8"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="7a1-XW-rSP" id="Z75-yK-BmV"/>
+                        <outlet property="realNameLabel" destination="YJ2-gS-KHD" id="UGF-K8-cnr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mes-of-BYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1466" y="18"/>
+            <point key="canvasLocation" x="1481.679389312977" y="7.746478873239437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jcb-Th-b0f">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yCc-Zh-xjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AWR-1W-3pc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lU8-K8-Xxc">
@@ -97,6 +115,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gYX-Eh-XSK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCc-Zh-xjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-272.51908396946561" y="7.746478873239437"/>
         </scene>

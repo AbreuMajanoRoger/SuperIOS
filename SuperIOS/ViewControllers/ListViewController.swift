@@ -11,8 +11,9 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDataSource {
     
-    
+    // conexio  de la tabla
     @IBOutlet weak var tableView: UITableView!
+    
     
     var superHeroList: [SuperHero] = []
     
@@ -52,6 +53,19 @@ class ListViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    //funcion para enviar los parametros de la api a la pagina de detalles
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if (segue.identifier == "showDetail") {
+                let viewController = segue.destination as! DetailViewController
+                
+                let indexPath = tableView.indexPathForSelectedRow!
+                
+                viewController.superHero = superHeroList[indexPath.row]
+                
+                tableView.deselectRow(at: indexPath, animated: false)
+            }
+        }
     // END LINES
 }
 

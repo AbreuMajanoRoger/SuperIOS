@@ -9,11 +9,26 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var realNameLabel: UILabel!
+    
+    
+    var superHero: SuperHero? = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        if let superHero = superHero {
+                   self.navigationItem.title = superHero.name
+                   avatarImageView.loadFrom(url: superHero.image.url)
+            
+            realNameLabel.text = superHero.biography.realName
+            
+               }
+           }
+    
     
 
     /*

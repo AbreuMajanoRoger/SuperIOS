@@ -14,6 +14,7 @@ class SuperHeroViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     
+    // funcion para renderizar  todo los componentes necesarios de la app  y mostrarlos, ejemplo nombres imagenes etc
     func render(superHero: SuperHero) {
            nameLabel.text = superHero.name
            avatarImageView.loadFrom(url: superHero.image.url)
@@ -23,6 +24,8 @@ class SuperHeroViewCell: UITableViewCell {
         avatarImageView.layer.shadowRadius = 2.0
         avatarImageView.layer.masksToBounds = false
         avatarImageView.layer.cornerRadius = 4.0
+        
+        
        }
     
     

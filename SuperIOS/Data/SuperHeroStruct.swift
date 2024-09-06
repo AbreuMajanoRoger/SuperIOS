@@ -8,7 +8,7 @@
 import Foundation
 
 
-// Atributos de la api 
+// Atributos de la api estructura para traer los item de la api 
 
 struct SuperHeroResponse: Codable {
     let response: String
@@ -18,9 +18,35 @@ struct SuperHeroResponse: Codable {
 struct SuperHero: Codable {
     let id: String
     let name: String
-    let image: Image
+    let powerstats: Stats
+    let biography:Biography
+    //let work:Work
+    var image: Image
 }
 
 struct Image: Codable {
     let url: String
+}
+
+struct Biography: Codable {
+    let realName: String
+    let placeOfBirth: String
+    let publisher: String
+    let alignment: String
+    
+    // colocar aquellos atributos que en la api vienen de una forma y se quiere modificar su nombre para utilizar ese atributo en la app
+    enum CodingKeys: String, CodingKey {
+        case publisher, alignment
+        case realName = "full-name"
+        case placeOfBirth = "place-of-birth"
+    }
+}
+
+struct Stats: Codable {
+    let intelligence: String?
+    let strength: String?
+    let speed: String?
+    let durability: String?
+    let power: String?
+    let combat: String?
 }
