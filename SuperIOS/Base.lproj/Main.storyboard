@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Superheroes-->
+        <!--Super Heroes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="SuperIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,9 +19,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="454" estimatedRowHeight="512" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="53W-Wm-2iF">
                                 <rect key="frame" x="0.0" y="103" width="385" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="w1N-0G-gWf">
+                                    <rect key="frame" x="0.0" y="0.0" width="385" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="j4I-lC-4uH"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="454" id="Of8-YM-s6E" customClass="SuperHeroViewCell" customModule="SuperIOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="385" height="454"/>
+                                        <rect key="frame" x="0.0" y="94" width="385" height="454"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Of8-YM-s6E" id="i0x-oc-kGG" customClass="UITableView">
                                             <rect key="frame" x="0.0" y="0.0" width="385" height="454"/>
@@ -44,6 +52,7 @@
                                         <connections>
                                             <outlet property="avatarImageView" destination="Fdx-Wh-IV7" id="V9v-cr-Rfr"/>
                                             <outlet property="nameLabel" destination="TbH-86-cdh" id="KGa-bZ-gEG"/>
+                                            <segue destination="kIG-wB-8EY" kind="show" identifier="showDetail" id="Jfo-Si-qmP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -58,34 +67,72 @@
                             <constraint firstItem="53W-Wm-2iF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yiq-l2-d9w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Superheroes" id="4MK-26-Nqn"/>
+                    <navigationItem key="navigationItem" title="Super Heroes" id="4MK-26-Nqn"/>
                     <connections>
                         <outlet property="tableView" destination="53W-Wm-2iF" id="gjV-Kn-dmF"/>
+                        <outlet property="viewFather" destination="8bC-Xf-vdC" id="kBu-bf-TXX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="654.19847328244271" y="7.746478873239437"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="s0l-J2-zcp">
             <objects>
-                <viewController id="kIG-wB-8EY" sceneMemberID="viewController">
+                <viewController id="kIG-wB-8EY" customClass="DetailViewController" customModule="SuperIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bjH-ly-ugr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpw-pO-Tyx">
+                                <rect key="frame" x="0.0" y="103" width="393" height="1197"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7C-rY-FLb" userLabel="Content View">
+                                        <rect key="frame" x="8" y="-45" width="393" height="1200"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c58-x6-jn1">
+                                                <rect key="frame" x="27" y="99" width="312" height="287"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1200" id="mGg-On-EAD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="h7C-rY-FLb" firstAttribute="leading" secondItem="Vpw-pO-Tyx" secondAttribute="leading" id="ajo-JC-aDp"/>
+                                    <constraint firstAttribute="trailing" secondItem="h7C-rY-FLb" secondAttribute="trailing" id="bEd-BK-yGC"/>
+                                    <constraint firstItem="h7C-rY-FLb" firstAttribute="top" secondItem="Vpw-pO-Tyx" secondAttribute="top" id="bGx-38-0pS"/>
+                                    <constraint firstAttribute="bottom" secondItem="h7C-rY-FLb" secondAttribute="bottom" id="vYc-AS-UGh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="R0c-bb-Dft"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Vpw-pO-Tyx" secondAttribute="bottom" id="BFd-lc-Ewe"/>
+                            <constraint firstItem="Vpw-pO-Tyx" firstAttribute="leading" secondItem="R0c-bb-Dft" secondAttribute="leading" id="GH7-Kz-yrd"/>
+                            <constraint firstItem="Vpw-pO-Tyx" firstAttribute="top" secondItem="R0c-bb-Dft" secondAttribute="top" id="eTJ-yG-VN8"/>
+                            <constraint firstItem="h7C-rY-FLb" firstAttribute="width" secondItem="bjH-ly-ugr" secondAttribute="width" id="grh-JI-dRy"/>
+                            <constraint firstItem="Vpw-pO-Tyx" firstAttribute="trailing" secondItem="R0c-bb-Dft" secondAttribute="trailing" id="ng1-AQ-5zl"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="X5g-T6-XZ8"/>
+                    <size key="freeformSize" width="393" height="1300"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="c58-x6-jn1" id="FNu-mS-4N5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mes-of-BYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1466" y="18"/>
+            <point key="canvasLocation" x="1481.679389312977" y="7.746478873239437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jcb-Th-b0f">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yCc-Zh-xjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AWR-1W-3pc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lU8-K8-Xxc">
@@ -97,6 +144,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gYX-Eh-XSK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCc-Zh-xjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-272.51908396946561" y="7.746478873239437"/>
         </scene>
@@ -104,6 +152,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

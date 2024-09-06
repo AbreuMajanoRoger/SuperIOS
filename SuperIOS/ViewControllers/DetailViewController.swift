@@ -9,11 +9,33 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var realNameLabel: UILabel!
+    
+    @IBOutlet weak var publisherLabel: UILabel!
+    
+    @IBOutlet weak var placeOfBirthLabel: UILabel!
+    
+    
+    var superHero: SuperHero? = nil
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        if let superHero = superHero {
+                   self.navigationItem.title = superHero.name
+                   avatarImageView.loadFrom(url: superHero.image.url)
+            
+          /*  publisherLabel.text = superHero.biography.publisher
+            realNameLabel.text = superHero.biography.realName
+            placeOfBirthLabel.text = superHero.biography.placeOfBirth*/
+    
+               }
+           }
+    
     
 
     /*
@@ -27,3 +49,20 @@ class DetailViewController: UIViewController {
     */
 
 }
+
+
+/* intelligence
+  strength
+  speed:
+ durability:
+  power:
+  combat: 
+ 
+ 
+ if let superHero = superHero {
+            self.navigationItem.title = superHero.name
+            avatarImageView.loadFrom(url: superHero.image.url)
+     
+     publisherLabel.text = superHero.biography.publisher
+     realNameLabel.text = superHero.biography.realName
+     placeOfBirthLabel.text = superHero.biography.placeOfBirth    */

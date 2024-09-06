@@ -32,5 +32,18 @@ class SuperHeroProvider {
         task.resume()
     }
     
+    static func findSuperHeroesByName(_ name: String) async throws -> [SuperHero] {
+         guard let url = URL(string: "\(Constants.BASE_URL)search/\(name)") else {
+             print("URL not valid")
+             return []
+         }
+         
+        
+         let (data, response) = try await URLSession.shared.data(from: url)
+         
+         let result = try JSONDecoder().decode(SuperHeroResponse.self, from: data)
+         return result.results
+     }
+    
     //END LINES
 }
