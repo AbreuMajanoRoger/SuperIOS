@@ -1,0 +1,30 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "4MK-26-Nqn.title" : {
+      "comment" : "Class = \"UINavigationItem\"; title = \"Super Heroes\"; ObjectID = \"4MK-26-Nqn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Super Heroes"
+          }
+        }
+      }
+    },
+    "TbH-86-cdh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Name\"; ObjectID = \"TbH-86-cdh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Name"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
